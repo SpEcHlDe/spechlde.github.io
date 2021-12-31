@@ -1,6 +1,6 @@
 const Github_Username = "SpEcHlDe";
 
-const Email_Id = "hoyahoyenegeta@gmail.com";
+const Email_Id = "spechlde@themails.ml";
 
 var xhr = new XMLHttpRequest();
 xhr.addEventListener("readystatechange", function() {
