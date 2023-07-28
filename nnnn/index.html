@@ -1,72 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Video Player</title>
+  <title>Video Player</title>
 </head>
 <body>
-    <h1>Video Player</h1>
-    
-    <input type="text" id="videoLink" placeholder="Enter video URL">
-    <button onclick="playVideo()">Play</button>
-    <br>
-    
-    <video id="videoPlayer" width="640" height="360" controls>
-        <!-- The video source will be added dynamically -->
-    </video>
+  <h1>Video Player</h1>
+  <input type="text" id="videoUrl" placeholder="Enter video URL">
+  <button onclick="playVideo()">Play Video</button>
+  <div id="videoPlayer"></div>
 
-    <script>
-        function playVideo() {
-            const videoLinkInput = document.getElementById('videoLink');
-            const videoPlayer = document.getElementById('videoPlayer');
+  <script>
+    function playVideo() {
+      var videoUrl = document.getElementById('videoUrl').value;
+      if (videoUrl) {
+        var videoPlayer = document.getElementById('videoPlayer');
+        videoPlayer.innerHTML = ''; // Clear any previous video
 
-            const videoUrl = videoLinkInput.value.trim();
-            if (videoUrl === '') {
-                alert('Please enter a valid video URL.');
-                return;
-            }
+        var video = document.createElement('video');
+        video.setAttribute('controls', 'controls');
+        video.setAttribute('width', '640');
+        video.setAttribute('height', '360');
 
-            // Clear previous video sources if any
-            videoPlayer.innerHTML = '';
+        var source = document.createElement('source');
+        source.setAttribute('src', videoUrl);
 
-            const source = document.createElement('source');
-            source.src = videoUrl;
-            source.type = 'video/mp4'; // Adjust the type according to your video format (e.g., video/mp4, video/webm, video/ogg)
-
-            // Check if the video URL is valid
-            const isValidUrl = checkValidUrl(videoUrl);
-            if (isValidUrl) {
-                // Check if the video is available
-                checkVideoAvailability(videoUrl).then(available => {
-                    if (available) {
-                        videoPlayer.appendChild(source);
-                        videoPlayer.load();
-                        videoPlayer.play();
-                    } else {
-                        alert('The URL you entered is not a video or the video is unavailable.');
-                    }
-                });
-            } else {
-                alert('The URL you entered is invalid.');
-            }
-        }
-
-        // Function to check if the URL is valid
-        function checkValidUrl(url) {
-            // Simple URL validation
-            // You can add more sophisticated validation as needed
-            const urlPattern = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*$/i;
-            return urlPattern.test(url);
-        }
-
-        // Function to check if the video is available
-        async function checkVideoAvailability(url) {
-            try {
-                const response = await fetch(url, { method: 'HEAD' });
-                return response.ok && response.headers.get('content-type').startsWith('video/');
-            } catch (error) {
-                return false;
-            }
-        }
-    </script>
+        video.appendChild(source);
+        videoPlayer.appendChild(video);
+      } else {
+        alert('Please enter a video URL.');
+      }
+    }
+  </script>
 </body>
 </html>
