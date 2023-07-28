@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Video Player</title>
+  <title>Fancy Video Player</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f0f0f0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9f9f9;
       margin: 0;
-      padding: 0;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -16,31 +15,38 @@
     .container {
       background-color: #fff;
       padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      max-width: 600px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
       width: 100%;
       text-align: center;
     }
     h1 {
+      color: #007bff;
       margin-bottom: 20px;
     }
     input {
       width: 100%;
       padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
+      margin-bottom: 20px;
+      border: 2px solid #007bff;
+      border-radius: 6px;
       font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+    input:focus {
+      outline: none;
+      border-color: #0056b3;
     }
     button {
       background-color: #007bff;
       color: #fff;
       border: none;
-      padding: 12px 20px;
+      padding: 12px 24px;
       font-size: 16px;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
     button:hover {
       background-color: #0056b3;
@@ -48,14 +54,25 @@
     #videoPlayer {
       margin-top: 20px;
     }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .fade-in {
+      animation: fadeIn 0.5s ease;
+    }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1>Video Player</h1>
+    <h1>Fancy Video Player</h1>
     <input type="text" id="videoUrl" placeholder="Enter video URL">
     <button onclick="playVideo()">Play Video</button>
-    <div id="videoPlayer"></div>
+    <div id="videoPlayer" class="fade-in"></div>
   </div>
 
   <script>
