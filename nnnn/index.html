@@ -2,12 +2,61 @@
 <html>
 <head>
   <title>Video Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      text-align: center;
+    }
+    h1 {
+      margin-bottom: 20px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    #videoPlayer {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Video Player</h1>
-  <input type="text" id="videoUrl" placeholder="Enter video URL">
-  <button onclick="playVideo()">Play Video</button>
-  <div id="videoPlayer"></div>
+  <div class="container">
+    <h1>Video Player</h1>
+    <input type="text" id="videoUrl" placeholder="Enter video URL">
+    <button onclick="playVideo()">Play Video</button>
+    <div id="videoPlayer"></div>
+  </div>
 
   <script>
     function playVideo() {
@@ -18,8 +67,8 @@
 
         var video = document.createElement('video');
         video.setAttribute('controls', 'controls');
-        video.setAttribute('width', '640');
-        video.setAttribute('height', '360');
+        video.setAttribute('width', '100%');
+        video.setAttribute('height', 'auto');
 
         var source = document.createElement('source');
         source.setAttribute('src', videoUrl);
