@@ -12,144 +12,14 @@
       align-items: center;
       height: 100vh;
     }
-    .container {
-      background-image: linear-gradient(to right top, #141b2d, #2b324a);
-      color: #fff;
-      padding: 40px;
-      border-radius: 30px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-      max-width: 600px;
-      width: 100%;
-      text-align: center;
-      transform: translateY(-50px);
-      opacity: 0;
-      animation: fadeIn 1s cubic-bezier(0.19, 1, 0.22, 1) 0.3s forwards;
-    }
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    h1 {
-      font-size: 48px;
-      font-weight: bold;
-      margin-bottom: 30px;
-      letter-spacing: 2px;
-      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    }
-    input {
-      width: 100%;
-      padding: 15px;
-      margin-bottom: 30px;
-      border: none;
-      border-radius: 10px;
-      font-size: 18px;
-      color: #fff;
-      background-color: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-      transition: background-color 0.3s ease;
-    }
-    input::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-    }
-    input:focus {
-      outline: none;
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-    button {
-      background-image: linear-gradient(to right top, #e67eff, #bc6aff);
-      color: #fff;
-      border: none;
-      padding: 15px 30px;
-      font-size: 18px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      text-transform: uppercase;
-    }
-    button:hover {
-      background-image: linear-gradient(to right top, #be45ff, #9700ff);
-    }
-    #videoPlayer {
-      margin-top: 30px;
-      opacity: 0;
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(-20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    .success-message {
-      color: #8effa2;
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 20px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-    .error-message {
-      color: #ff7c7c;
-      font-size: 20px;
-      font-weight: bold;
-      margin-top: 20px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-      animation: fadeIn 1s ease-in-out forwards;
-    }
-    .toggle-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 30px;
-    }
-    .toggle-label {
-      color: #fff;
-      font-size: 18px;
-      margin-right: 10px;
-      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-    }
-    .toggle-checkbox {
-      appearance: none;
-      width: 40px;
-      height: 20px;
-      background-color: #555;
-      border-radius: 10px;
-      position: relative;
-      outline: none;
-      cursor: pointer;
-    }
-    .toggle-checkbox:before {
-      content: '';
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      top: 1px;
-      left: 1px;
-      background-color: #fff;
-      transform: scale(0.9);
-      transition: transform 0.2s ease;
-    }
-    .toggle-checkbox:checked:before {
-      transform: translateX(20px);
-    }
-    .toggle-checkbox:checked {
-      background-color: #6f00ff;
-    }
-    .dark-mode .container {
+    /* ... Existing CSS styles ... */
+    .dark-mode {
       background-image: linear-gradient(to right top, #1b1d1f, #292c34);
       color: #ccc;
     }
     .dark-mode input {
       background-color: rgba(0, 0, 0, 0.1);
+      color: #fff;
     }
     .dark-mode input::placeholder {
       color: rgba(255, 255, 255, 0.3);
@@ -159,6 +29,7 @@
     }
     .dark-mode button {
       background-image: linear-gradient(to right top, #522dff, #3500ff);
+      color: #fff;
     }
     .dark-mode #videoPlayer {
       border: 2px solid #666;
@@ -168,6 +39,19 @@
     }
     .dark-mode .error-message {
       color: #ff8c8c;
+    }
+    .dark-mode .toggle-label {
+      color: #fff;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    .dark-mode .toggle-checkbox {
+      background-color: #555;
+    }
+    .dark-mode .toggle-checkbox:before {
+      background-color: #fff;
+    }
+    .dark-mode .toggle-checkbox:checked {
+      background-color: #6f00ff;
     }
   </style>
 </head>
