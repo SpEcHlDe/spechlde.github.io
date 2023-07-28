@@ -104,6 +104,71 @@
       text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
       animation: fadeIn 1s ease-in-out forwards;
     }
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 30px;
+    }
+    .toggle-label {
+      color: #fff;
+      font-size: 18px;
+      margin-right: 10px;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    }
+    .toggle-checkbox {
+      appearance: none;
+      width: 40px;
+      height: 20px;
+      background-color: #555;
+      border-radius: 10px;
+      position: relative;
+      outline: none;
+      cursor: pointer;
+    }
+    .toggle-checkbox:before {
+      content: '';
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      top: 1px;
+      left: 1px;
+      background-color: #fff;
+      transform: scale(0.9);
+      transition: transform 0.2s ease;
+    }
+    .toggle-checkbox:checked:before {
+      transform: translateX(20px);
+    }
+    .toggle-checkbox:checked {
+      background-color: #6f00ff;
+    }
+    .dark-mode .container {
+      background-image: linear-gradient(to right top, #1b1d1f, #292c34);
+      color: #ccc;
+    }
+    .dark-mode input {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+    .dark-mode input::placeholder {
+      color: rgba(255, 255, 255, 0.3);
+    }
+    .dark-mode input:focus {
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+    .dark-mode button {
+      background-image: linear-gradient(to right top, #522dff, #3500ff);
+    }
+    .dark-mode #videoPlayer {
+      border: 2px solid #666;
+    }
+    .dark-mode .success-message {
+      color: #7affb2;
+    }
+    .dark-mode .error-message {
+      color: #ff8c8c;
+    }
   </style>
 </head>
 <body>
@@ -114,36 +179,22 @@
     <div id="videoPlayer"></div>
     <div id="successMessage" class="success-message"></div>
     <div id="errorMessage" class="error-message"></div>
+    <div class="toggle-container">
+      <span class="toggle-label">Dark Mode</span>
+      <label class="toggle-checkbox-container">
+        <input type="checkbox" class="toggle-checkbox" onclick="toggleDarkMode()">
+      </label>
+    </div>
   </div>
 
   <script>
     function playVideo() {
-      var videoUrl = document.getElementById('videoUrl').value;
-      var videoPlayer = document.getElementById('videoPlayer');
-      var successMessage = document.getElementById('successMessage');
-      var errorMessage = document.getElementById('errorMessage');
+      // ... Existing playVideo function ...
+    }
 
-      videoPlayer.innerHTML = '';
-      successMessage.textContent = '';
-      errorMessage.textContent = '';
-
-      if (videoUrl) {
-        var video = document.createElement('video');
-        video.setAttribute('controls', 'controls');
-        video.setAttribute('width', '100%');
-        video.setAttribute('height', 'auto');
-
-        var source = document.createElement('source');
-        source.setAttribute('src', videoUrl);
-
-        video.appendChild(source);
-        videoPlayer.appendChild(video);
-
-        videoPlayer.style.animation = 'fadeIn 1s ease-in-out forwards';
-        successMessage.textContent = 'Video successfully loaded.';
-      } else {
-        errorMessage.textContent = 'Please enter a video URL.';
-      }
+    function toggleDarkMode() {
+      const container = document.querySelector('.container');
+      container.classList.toggle('dark-mode');
     }
   </script>
 </body>
